@@ -16,8 +16,8 @@
     - [x] 文案
 - [x] 规划抖音账号发展方向
 - [x] 总结3篇技术文档
-    - [x] 2021/4/16 photo_old2new
-    - [x] 2021/4/30 linux_parsing_log
+    - [x] 2021/4/16 PhotoRepair
+    - [x] 2021/4/30 LinuxParsingLog
     - [x] 2021/4/30 BorringSSL
 - [x] 运动10天打卡
     - [x] 2021/4/10 跳绳
