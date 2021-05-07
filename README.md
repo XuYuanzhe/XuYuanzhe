@@ -4,6 +4,6 @@
 - [ ] 体重负增长10kg `?/10 已完成 0%`
 - [ ] 公众号拥有400粉丝 `220/400 已完成 55%`
 
---> Schedule
+--> [Schedule](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/.md)
 
---> Documents
+--> [Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
