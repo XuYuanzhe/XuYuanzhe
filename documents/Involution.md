@@ -1,4 +1,6 @@
-> 内卷: involution
+# Involution 内卷
+
+>> 内卷: involution
 >
 > 内卷的意思是：额外的投入无法增加产出。
 >

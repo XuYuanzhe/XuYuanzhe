@@ -1,3 +1,5 @@
+# Linux 操作系统对log的一些处理手段的记录
+
 **杀僵尸进程：**
 
 　　`ps -ef | grep java` (先查java进程ID)
