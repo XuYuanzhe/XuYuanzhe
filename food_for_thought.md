@@ -1,13 +1,13 @@
 ### 哲学
 
-[关于佛教《金刚经》里所讲的三句义的理解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Involution.md)
+[关于佛教《金刚经》里所讲的三句义的理解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/%E4%B8%89%E5%8F%A5%E4%B9%89.md)
 
 
 ### 文化
 
-[印第安文化与Goro's银饰的一些了解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Involution.md)
+[印第安文化与Goro's银饰的一些了解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/%E5%8D%B0%E7%AC%AC%E5%AE%89%E9%93%B6%E9%A5%B0.md)
 
 
 ### 其他
 
-[赛博朋克2077故事梗概](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Involution.md)
+[赛博朋克2077故事梗概](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/Cyberpunk2077.md)
