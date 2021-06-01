@@ -7,3 +7,5 @@
 --> [Schedule](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/schedule.md)
 
 --> [Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
+
+--> [Food for thought](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought.md)
