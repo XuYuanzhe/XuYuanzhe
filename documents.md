@@ -16,10 +16,6 @@ Git工作流程（ [Vim Command](https://github.com/XuYuanzhe/XuYuanzhe/blob/mai
 
 一些python的面试题（ [Python interview](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonInterview.md) ）
 
-关于配置BoringSSL的实验记录（ [About BoringSSL](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/BoringSSL.md) ）
-
-关于使用Http/2.0反爬虫的实验记录（ [Counter Spiders](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Http2.md) ）
-
 Shoda 搜索引擎（ [Shoda Search](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/ShodaSearch.md) ）
 
 老照片修复（ [Photo repair](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PhotoRepair.md) ）
