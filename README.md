@@ -14,4 +14,4 @@
 
 [Baidu cloud](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Books.md)
 
-[More resources on GitHub](https://github.com/XuYuanzhe/free-programming-books/blob/master/books/free-programming-books-zh.md)
+[More resources on GitHub](https://github.com/EbookFoundation/free-programming-books/blob/master/books/free-programming-books-zh.md)
