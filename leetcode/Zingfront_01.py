@@ -17,8 +17,10 @@ def main():
         {'A': 5, 'B': 6, 'C': 8, 'D': 7},
         {'A': 6, 'B': 7, 'C': 5, 'D': 8}
     ]
-    mounth = 5 * 12
-    return max(periodic[mounth % 4], key=periodic[mounth % 4].get)
+    month = 5 * 12
+    status = periodic[month % 4]
+    print('⽣产⼒最⾼流⽔线: %s' % max(status, key=status.get))
+    print('每⽉⽣产: %s' % status[max(status, key=status.get)])
 
 
 if __name__ == '__main__':
