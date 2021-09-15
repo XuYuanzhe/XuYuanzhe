@@ -4,6 +4,8 @@
 
 关于使用Http/2.0反爬虫的实验记录（ [Counter Spiders](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Http2.md) ）
 
+Go超时控制的4种写法（ [Writing Golang Timeout](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/WritingGolangTimeout.md) ）
+
 使python程序变慢的坏习惯（ [Fask run Python](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/FastPython.md) ）
 
 高效从log中获取有用信息（ [Linux parsing log](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/LinuxParsingLog.md) ）
