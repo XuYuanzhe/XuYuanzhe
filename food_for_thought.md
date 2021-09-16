@@ -5,6 +5,8 @@
 
 ### 文化
 
+[内卷 Involution](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/Involution.md) 
+
 [印第安文化与Goro's银饰的一些了解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/%E5%8D%B0%E7%AC%AC%E5%AE%89%E9%93%B6%E9%A5%B0.md)
 
 
