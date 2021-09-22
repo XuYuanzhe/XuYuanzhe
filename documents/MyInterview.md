@@ -251,26 +251,47 @@ dict的底层逻辑是什？元组可以做dict的key吗？为什么？
 
 二面
 scrapy框架中最重要的文件是哪一个？组合集成了middlewares、pipelines这些模块的那个文件叫什么？
+    -scrapy.cfg是针对Scrapy框架的配置；settings.py是针对于项目本身的设置，比如用什么中间件、并发数量、UA、Pipelines等等
 scrapy创建项目的时候都包含哪些文件说得上来吗？
+    scrapy.cfg            # deploy configuration file
+    tutorial/             # project's Python module, you'll import your code from here
+        items.py          # project items definition file
+        middlewares.py    # project middlewares file
+        pipelines.py      # project pipelines file
+        settings.py       # project settings file
+        spiders/          # a directory where you'll later put your spiders
 scrapy的工作模式是什么样的？
+    -Scrapy框架主要由六大组件组成，它们分别是调度器(Scheduler)、下载器(Downloader)、爬虫（Spider）、中间件（Middleware）、实体管道(Item Pipeline)和Scrapy引擎(Scrapy Engine)
+    1、Scrapy Engine(引擎): 引擎负责控制数据流在系统的所有组件中流动，并在相应动作发生时触发事件。
+    2、Scheduler(调度器): 调度器从引擎接受request并将他们入队，以便之后引擎请求他们时提供给引擎。
+    3、Downloader（下载器）： 下载器负责获取页面数据并提供给引擎，而后提供给spider。
+    4、Spider（爬虫）： Spider是Scrapy用户编写用于分析response并提取item(即获取到的item)或额外跟进的URL的类。 每个spider负责处理一个特定(或一些)网站。
+    5、Item Pipeline(管道)： Item Pipeline负责处理被spider提取出来的item。典型的处理有清理、 验证及持久化(例如存储到数据库中)。
+    6、Downloader Middlewares（下载中间件）： 下载器中间件是在引擎及下载器之间的特定钩子(specific hook)，处理Downloader传递给引擎的response。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
+    7、Spider Middlewares（Spider中间件）： Spider中间件是在引擎及Spider之间的特定钩子(specific hook)，处理spider的输入(response)和输出(items及requests)。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
+    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922172935.png)
 聊一聊你在工作中使用git的一些命令和方法
 聊一聊Linux你用过的一些指令吧
 怎么查询日志最近的一条输出？
+    -tail -f -n 10
 我写一个例子 <s>://<host>:<port>/<path> 把他理解为一个url这样完整吗？
+    -不完整，但说不上来
 访问http://www.baidu.com实际上是访问了哪里？
 连接数据库需要哪些信息？
     -host、port、user、pwd、db这些吧
     -那这些是怎么组合起来访问的呢？
     -<s>://<host>:<port>/？user=xxx&pwd=xxx
-    -不太对哦
+    -应该是 <s>://<username>:<password>@<host>:<port>/<path>
 说说你这里的gRPC是什么吧
+    -gRPC是google开源的一个高性能、跨语言的RPC框架
 那怎么理解RPC？他是基于什么实现的呢？比如http服务是基于http协议的
+    -Remote Procedure Call Protocol（远程过程调用协议）本质的区别就是RPC主要是基于TCP/IP协议的
 你这里不可以写shell命令，他是一种应用程序那你说说$1在shell中是什么含义
     -第一个传递的参数
     -那$0呢
-    -不知道
+    -不知道(Shell本身的文件名)
     -` `用过吗？可以讲讲吗？
-    -没用过
+    -没用过(被单引号括起来的字符都是普通字符，就算特殊字符也不再有特殊含义；而被双引号括起来的字符中，"$"、"\"和反引号是拥有特殊含义的，"$"代表引用变量的值，而反引号代表引用命令)
     你这里写Flask + Rdis + JavaScript那flask他是一个server吗？
     -用flask写了一个简单的server
     -怎么启动服务的呢？
@@ -286,8 +307,17 @@ scrapy的工作模式是什么样的？
     -叫应用，是app，所以你启的这个main.py不能称之为是一个service，应该用uwsgi+nginx来做，了解nginx吗？
     -好像是做负载均衡的
     -嗯 呐说说你知道哪些负载均衡的模式
-    -记不清了
+    -记不清了（基于DNS负载均衡[解析ip分配给服务器]，基于硬件负载均衡，基于软件负载均衡[根据OSI分为四层和七层负载均衡，本质上是把数据包偷天换日]）
+    -正向代理与反向代理
+    -两者的区别在于代理的对象不一样：正向代理代理的对象是客户端(科学上网工具)，反向代理代理的对象是服务端(拨打10086,访问baidu.com)
+    两层结构
+    在这种结构里,uWSGI作为服务器，它用到了HTTP协议以及wsgi协议，flask应用作为application，实现了wsgi协议。当有客户端发来请求，uWSGI接受请求，调用flask app得到相应，之后相应给客户端。通常来说，Flask等web框架会自己附带一个wsgi服务器(这就是flask应用可以直接启动的原因)，但是这只是在开发阶段用到的，在生产环境是不够用的。
+    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
+    三层结构
+    这种结构里，uWSGI作为中间件，它用到了uwsgi协议(与nginx通信)，wsgi协议(调用Flask app)。当有客户端发来请求，nginx先做处理(静态资源是nginx的强项)，无法处理的请求(uWSGI),最后的相应也是nginx回复给客户端的。
+    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
 你也用过tornado框架，那你觉得它和flask、django这两个是一回事吗？
+
 你这里说用过mitmporxy用它是帮助做什么事的呢？
 
 
@@ -313,7 +343,19 @@ scrapy的工作模式是什么样的？
   * 请携带个人简历
 
 
+* **14:00** Momenta 电话面试
 
+
+* **15:00** 知乎 现场面试
+
+
+* **18:00** 领创集团 现场面试
+
+
+#### 9/24
+
+* **10:30** 道远课堂 视屏面试
+  * <a href="https://vc.feishu.cn/j/850896196">面试房间</a>
 
 
 
