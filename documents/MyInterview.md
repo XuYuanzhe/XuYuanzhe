@@ -237,11 +237,11 @@ if __name__ == "__main__":
 
 * **15:00** 智线云科技 现场面试
   
-* ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
 
 ⬆图一
 
-* ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
 
 ⬆图二
 ```
