@@ -1,4 +1,4 @@
-## 2021面经
+# 2021面经
 
 #### 3/2 
 
@@ -23,7 +23,6 @@
   * <a href="#">朝阳区 暖山生活广场 B座3F</a>
 
 ```
-# 主要做py游戏引擎开发的 技术栈匹配度极低
 python携程与进程的区别？
     进程有自己的内存空间，数据栈；协程是一种微线程，自带CPU上下文，若想使用协程则程序中必须有等待，协程执行任务更节省资源。
 cpython的dict底层使用的数据结构？
@@ -237,12 +236,13 @@ if __name__ == "__main__":
 #### 9/14
 
 * **15:00** 智线云科技 现场面试
-![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
-⬆图一
 ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
+
+⬆图一
+
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
+
 ⬆图二
-![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922172935.png)
-⬆图三
 ```
 一面
 说说你解决过的最难的一个网页爬虫问题
@@ -265,7 +265,7 @@ scrapy创建项目的时候都包含哪些文件说得上来吗？
         pipelines.py      # project pipelines file
         settings.py       # project settings file
         spiders/          # a directory where you'll later put your spiders
-scrapy的工作模式是什么样的？(图三)
+scrapy的工作模式是什么样的？
     -Scrapy框架主要由六大组件组成，它们分别是调度器(Scheduler)、下载器(Downloader)、爬虫（Spider）、中间件（Middleware）、实体管道(Item Pipeline)和Scrapy引擎(Scrapy Engine)
     1、Scrapy Engine(引擎): 引擎负责控制数据流在系统的所有组件中流动，并在相应动作发生时触发事件。
     2、Scheduler(调度器): 调度器从引擎接受request并将他们入队，以便之后引擎请求他们时提供给引擎。
@@ -274,7 +274,6 @@ scrapy的工作模式是什么样的？(图三)
     5、Item Pipeline(管道)： Item Pipeline负责处理被spider提取出来的item。典型的处理有清理、 验证及持久化(例如存储到数据库中)。
     6、Downloader Middlewares（下载中间件）： 下载器中间件是在引擎及下载器之间的特定钩子(specific hook)，处理Downloader传递给引擎的response。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
     7、Spider Middlewares（Spider中间件）： Spider中间件是在引擎及Spider之间的特定钩子(specific hook)，处理spider的输入(response)和输出(items及requests)。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
-    
 聊一聊你在工作中使用git的一些命令和方法
 聊一聊Linux你用过的一些指令吧
 怎么查询日志最近的一条输出？
@@ -315,10 +314,12 @@ scrapy的工作模式是什么样的？(图三)
     -记不清了（基于DNS负载均衡[解析ip分配给服务器]，基于硬件负载均衡，基于软件负载均衡[根据OSI分为四层和七层负载均衡，本质上是把数据包偷天换日]）
     -正向代理与反向代理
     -两者的区别在于代理的对象不一样：正向代理代理的对象是客户端(科学上网工具)，反向代理代理的对象是服务端(拨打10086,访问baidu.com)
-    两层结构(图一)
+    两层结构（图一）
     在这种结构里,uWSGI作为服务器，它用到了HTTP协议以及wsgi协议，flask应用作为application，实现了wsgi协议。当有客户端发来请求，uWSGI接受请求，调用flask app得到相应，之后相应给客户端。通常来说，Flask等web框架会自己附带一个wsgi服务器(这就是flask应用可以直接启动的原因)，但是这只是在开发阶段用到的，在生产环境是不够用的。
-    三层结构(图二)
+    
+    三层结构（图二）
     这种结构里，uWSGI作为中间件，它用到了uwsgi协议(与nginx通信)，wsgi协议(调用Flask app)。当有客户端发来请求，nginx先做处理(静态资源是nginx的强项)，无法处理的请求(uWSGI),最后的相应也是nginx回复给客户端的。
+    
 你也用过tornado框架，那你觉得它和flask、django这两个是一回事吗？
     -tornado是一个服务器程序，如何理解，我觉得比如tornado提供了控制webserver的方式，控制层面包括了各种webserver的细节。当然tornado中是可以定义对于web请求的返回
 你这里说用过mitmporxy用它是帮助做什么事的呢？
@@ -344,15 +345,99 @@ scrapy的工作模式是什么样的？(图三)
 #### 9/23
 
 * **10:30** 懂球帝 现场面试
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922172935.png)
+
+⬆图三
+
+```
+手写一个快排算法
+def quick_sort(arr):
+    if arr==[]:
+        return[]
+    else:
+        first=arr[0]
+        left=quick_sort([l for l in arr[1:]if l<first])
+        right=quick_sort([r for r in arr[1:]if r>=first])
+        return left+[first]+right 
+手写一个字符串反转
+a = '123456789'
+b = a[::-1]
+b = ''.join(reversed(a))
+画一个scrapy的架构图
+    -图三
+redis的几种数据结构了解吗？
+    String可以用来存储字符串、整数、浮点数。
+        全局ID：使用int类型的incrby的原子性；
+        热点数据缓存；
+        数据共享：如分布式Session缓存；
+    Hash可以将相关的值聚集存储在一起，节省内存空间。
+    ziplist：OBJ_ENCODING_ZIPLIST(压缩列表)
+    hashtable：OBJ_ENCODING_HT(哈希表)
+        存储对象类型的数据，如缓存数据表的数据
+    Set	String 类型的无序集合
+        点赞、签到、打卡、标签、抽奖
+    List存储有序的字符串(从左到右)，元素可以重复。可以充当队列和栈的角色。
+        消息队列。
+    Zset
+怎么判断二叉树平衡？
+```
 
 
 * **14:00** Momenta 电话面试
+```
+说说进程线程和协程？
+都说python慢，慢在哪里？
+    -全局解释器锁(Global Interpreter Lock)（GIL）, 是因为 Python 是解释型语言而不是编译型语言, 是因为 Python 是一种动态类型的语言”
+python2和python3的区别你觉得哪个点你印象比较深？
+```
 
 
 * **15:00** 知乎 现场面试
+```
+一个数组把0放在右边其他元素顺序排列不变
+说说三次握手四次挥手？
+如果 C 发送的 ack S 没有接收会出现什么情况？
+二叉树的三种遍历?
+    -前、中、后（基于根节点）
+说说进程线程和协程？
+    -最大的优势就是协程极高的执行效率。因为子程序切换不是线程切换，而是由程序自身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越明显。
+    -第二大优势就是不需要多线程的锁机制，因为只有一个线程，也不存在同时写变量冲突，在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。
+    -因为协程是一个线程执行，那怎么利用多核CPU呢？最简单的方法是多进程+协程，既充分利用多核，又充分发挥协程的高效率，可获得极高的性能
+那协程是用户态还是内核态？
+    -协程就是一种用户态内的上下文切换技术，协程是一种用户态的轻量级线程。
+画一个scrapy的架构图
+    -图三
+redis的几种数据结构了解吗？
+git出现冲突pull不下code怎么解决？
+什么是死锁？怎么避免？
+    -当线程互相持有对方所需要的资源时，会互相等待对方释放资源，如果线程都不主动释放所占有的资源，将产生死锁。
+    -尝试获取锁的时候加一个超时时间，这也就意味着在尝试获取锁的过程中若超过了这个时限该线程则放弃对该锁请求。
+    -银行家算法是避免死锁的一种重要方法
+```
 
 
 * **18:00** 领创集团 现场面试
+```
+dict的底层是什么实现的？时间复杂度是多少？为什么？
+    - hash map, O(1), 
+MySQL写一条select最重要的是什么？
+    -命中索引
+手写一个二叉树中序遍历的递归
+def preorder(tree):
+  if tree is None:
+    return
+  print(tree.value)   # 前序遍历 value  left  right
+  preorder(tree.left)
+  print(tree.value)   # 中序遍历 left  value  right
+  preorder(tree.right)
+  print(tree.value)   # 后序遍历  left  right value
+都说python的多线程是假的但是为什么还要用多线程？好在哪里？
+    -多线程有两个好处：CPU并行，IO并行。Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。(多核多线程比单核多线程更差，原因是单核下的多线程，每次释放GIL，唤醒的那个线程都能获取到GIL锁，所以能够无缝执行，但多核下，CPU0释放GIL后，其他CPU上的线程都会进行竞争，但GIL可能会马上又被CPU0拿到，导致其他几个CPU上被唤醒后的线程会醒着等待到切换时间后又进入待调度状态，这样会造成线程颠簸(thrashing)，导致效率更低)
+你怎么理解这个分布式爬虫的分布式
+    -url 被分给不同的爬虫，但是不同爬虫的效率又是不一样的，所以说共享队列，共享数据，让效率高的爬虫多去做任务，而不是等着效率低的爬虫
+说说yeild函数
+    -在一个函数中，程序执行到yield语句的时候，程序暂停，返回yield后面表达式的值，在下一次调用的时候，从yield语句暂停的地方继续执行，如此循环，直到函数执行完。
+```
 
 
 #### 9/24
@@ -361,24 +446,21 @@ scrapy的工作模式是什么样的？(图三)
   - <a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>
   - <a href="https://leetcode-cn.com/problems/find-peak-element/">寻找峰值</a>
 ```
-二叉树两节点的最大路径长度；
+二叉树两节点的最大路径长度
 一个数组 里面包含012 要求左边放0右边放1 中间是2 时间复杂度0n；
-手写一个链表的插入删除方法 ；
-实现一个多态；
+手写一个链表的插入删除方法 
 ```
 
 
 #### 9/26
 
-* **10:30**
-
+* **10:30** 滴滴
+  
 
 * **14:00** 知乎 二面
 
 
 * **17:00** 小黑盒 二面
-
-
 
 -----
 
