@@ -237,7 +237,12 @@ if __name__ == "__main__":
 #### 9/14
 
 * **15:00** 智线云科技 现场面试
-
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
+⬆图一
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
+⬆图二
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922172935.png)
+⬆图三
 ```
 一面
 说说你解决过的最难的一个网页爬虫问题
@@ -260,7 +265,7 @@ scrapy创建项目的时候都包含哪些文件说得上来吗？
         pipelines.py      # project pipelines file
         settings.py       # project settings file
         spiders/          # a directory where you'll later put your spiders
-scrapy的工作模式是什么样的？
+scrapy的工作模式是什么样的？(图三)
     -Scrapy框架主要由六大组件组成，它们分别是调度器(Scheduler)、下载器(Downloader)、爬虫（Spider）、中间件（Middleware）、实体管道(Item Pipeline)和Scrapy引擎(Scrapy Engine)
     1、Scrapy Engine(引擎): 引擎负责控制数据流在系统的所有组件中流动，并在相应动作发生时触发事件。
     2、Scheduler(调度器): 调度器从引擎接受request并将他们入队，以便之后引擎请求他们时提供给引擎。
@@ -269,7 +274,7 @@ scrapy的工作模式是什么样的？
     5、Item Pipeline(管道)： Item Pipeline负责处理被spider提取出来的item。典型的处理有清理、 验证及持久化(例如存储到数据库中)。
     6、Downloader Middlewares（下载中间件）： 下载器中间件是在引擎及下载器之间的特定钩子(specific hook)，处理Downloader传递给引擎的response。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
     7、Spider Middlewares（Spider中间件）： Spider中间件是在引擎及Spider之间的特定钩子(specific hook)，处理spider的输入(response)和输出(items及requests)。 其提供了一个简便的机制，通过插入自定义代码来扩展Scrapy功能。
-    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922172935.png)
+    
 聊一聊你在工作中使用git的一些命令和方法
 聊一聊Linux你用过的一些指令吧
 怎么查询日志最近的一条输出？
@@ -310,12 +315,10 @@ scrapy的工作模式是什么样的？
     -记不清了（基于DNS负载均衡[解析ip分配给服务器]，基于硬件负载均衡，基于软件负载均衡[根据OSI分为四层和七层负载均衡，本质上是把数据包偷天换日]）
     -正向代理与反向代理
     -两者的区别在于代理的对象不一样：正向代理代理的对象是客户端(科学上网工具)，反向代理代理的对象是服务端(拨打10086,访问baidu.com)
-    两层结构
+    两层结构(图一)
     在这种结构里,uWSGI作为服务器，它用到了HTTP协议以及wsgi协议，flask应用作为application，实现了wsgi协议。当有客户端发来请求，uWSGI接受请求，调用flask app得到相应，之后相应给客户端。通常来说，Flask等web框架会自己附带一个wsgi服务器(这就是flask应用可以直接启动的原因)，但是这只是在开发阶段用到的，在生产环境是不够用的。
-    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185358.png)
-    三层结构
+    三层结构(图二)
     这种结构里，uWSGI作为中间件，它用到了uwsgi协议(与nginx通信)，wsgi协议(调用Flask app)。当有客户端发来请求，nginx先做处理(静态资源是nginx的强项)，无法处理的请求(uWSGI),最后的相应也是nginx回复给客户端的。
-    ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20210922185437.png)
 你也用过tornado框架，那你觉得它和flask、django这两个是一回事吗？
     -tornado是一个服务器程序，如何理解，我觉得比如tornado提供了控制webserver的方式，控制层面包括了各种webserver的细节。当然tornado中是可以定义对于web请求的返回
 你这里说用过mitmporxy用它是帮助做什么事的呢？
@@ -341,8 +344,6 @@ scrapy的工作模式是什么样的？
 #### 9/23
 
 * **10:30** 懂球帝 现场面试
-  * 请携带身份证
-  * 请携带个人简历
 
 
 * **14:00** Momenta 电话面试
@@ -356,8 +357,26 @@ scrapy的工作模式是什么样的？
 
 #### 9/24
 
-* **10:30** 道远课堂 视屏面试
-  * <a href="https://vc.feishu.cn/j/850896196">面试房间</a>
+* **15:00** 小黑盒 电话面试
+  - <a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>
+  - <a href="https://leetcode-cn.com/problems/find-peak-element/">寻找峰值</a>
+```
+二叉树两节点的最大路径长度；
+一个数组 里面包含012 要求左边放0右边放1 中间是2 时间复杂度0n；
+手写一个链表的插入删除方法 ；
+实现一个多态；
+```
+
+
+#### 9/26
+
+* **10:30**
+
+
+* **14:00** 知乎 二面
+
+
+* **17:00** 小黑盒 二面
 
 
 
