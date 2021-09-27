@@ -370,6 +370,7 @@ a = '123456789'
 b = a[::-1]
 b = ''.join(reversed(a))
 ```
+
 ```
 画一个scrapy的架构图
     -图三
@@ -431,12 +432,8 @@ redis的淘汰机制有了解吗？
 
 
 * **18:00** 领创集团 现场面试
-```
-dict的底层是什么实现的？时间复杂度是多少？为什么？
-    - hash map, O(1), 
-MySQL写一条select最重要的是什么？
-    -命中索引
-手写一个二叉树中序遍历的递归
+```python
+# 手写一个二叉树中序遍历的递归
 def preorder(tree):
   if tree is None:
     return
@@ -445,6 +442,13 @@ def preorder(tree):
   print(tree.value)   # 中序遍历 left  value  right
   preorder(tree.right)
   print(tree.value)   # 后序遍历  left  right value
+```
+
+```
+dict的底层是什么实现的？时间复杂度是多少？为什么？
+    - hash map, O(1), 
+MySQL写一条select最重要的是什么？
+    -命中索引
 都说python的多线程是假的但是为什么还要用多线程？好在哪里？
     -多线程有两个好处：CPU并行，IO并行。Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。(多核多线程比单核多线程更差，原因是单核下的多线程，每次释放GIL，唤醒的那个线程都能获取到GIL锁，所以能够无缝执行，但多核下，CPU0释放GIL后，其他CPU上的线程都会进行竞争，但GIL可能会马上又被CPU0拿到，导致其他几个CPU上被唤醒后的线程会醒着等待到切换时间后又进入待调度状态，这样会造成线程颠簸(thrashing)，导致效率更低)
 你怎么理解这个分布式爬虫的分布式
@@ -676,3 +680,13 @@ ps grep ls ll touch cp cat vim scp top cd rm mkdir mv which su pwd kill zip
 
 python比较慢的话换个语言
 
+
+**我的问题问完了，你还有什么要问我的吗？**
+> 您对这个岗位的长期规划是什么？
+> 
+> 您希望我在短期内解决哪些问题？
+> 
+> 刚才您问到的xxx问题我答的(不)好，我想问下您是怎么理解这个地方的。
+> 
+> 您对这个岗位三到五年职业规划的建议是什么呢？
+> 
