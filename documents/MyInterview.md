@@ -397,6 +397,7 @@ redis的几种数据结构了解吗？
 都说python慢，慢在哪里？
     -全局解释器锁(Global Interpreter Lock)（GIL）, 是因为 Python 是解释型语言而不是编译型语言, 是因为 Python 是一种动态类型的语言”
 python2和python3的区别你觉得哪个点你印象比较深？
+    -print不再是语句，而是函数；Python2 默认编码是 ASCII，Python3 默认编码是 Unicode(utf-8)；在 Python2 中很多返回列表对象的内置函数和方法在Python3都改成了返回类似于迭代器的对象，因为迭代器的惰性加载特性使得操作大数据更有效率；True 和 False 在 Python2 中是两个全局变量，在数值上分别对应 1 和 0.Python3 修正了这个缺陷，True 和 False 变为两个关键字。
 ```
 
 
@@ -464,6 +465,7 @@ def preorder(tree):
 
 * **14:00** 知乎 二面
 ```
+问了一面没答上来的基础知识
 二分查找算法
 两个栈实现一个队列
 ```
@@ -553,14 +555,6 @@ python使用`threading`实现多线程，使用`gevent + asyncio`实现携程。
 ​	* 好处：直接杜绝了多个线程访问内存空间的安全问题。
 
 ​	* 坏处：Python的多线程不是真正多线程，不能充分利用多核CPU的资源。
-
-
-
-**py2和py3的区别，把项目从py2迁移到py3会遇到哪些困难？**
-
-print不再是语句，而是函数；Python2 默认编码是 ASCII，Python3 默认编码是 Unicode(utf-8)；在 Python2 中很多返回列表对象的内置函数和方法在 Python3 都改成了返回类似于迭代器的对象，因为迭代器的惰性加载特性使得操作大数据更有效率；True 和 False 在 Python2 中是两个全局变量，在数值上分别对应 1 和 0。Python3 修正了这个缺陷，True 和 False 变为两个关键字。
-
-
 
 
 
@@ -661,12 +655,6 @@ ps grep ls ll touch cp cat vim scp top cd rm mkdir mv which su pwd kill zip
   * InnoDB 支持外键，而 MyISAM 不支持
   * InnoDB 是聚集索引，MyISAM 是非聚集索引
 
-
-
-**Redis**
-
-
-为什么快？除了他是内存型数据库外，还有什么原因？
 
 
 
