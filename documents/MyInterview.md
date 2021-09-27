@@ -12,9 +12,11 @@
 
 -  __11:00__ 阿凡提教育 视频面试
 
-  - <a href="#">面试房间</a>
+    <a href="https://leetcode-cn.com/problems/plus-one/">leetcode 66 加一</a>
 
-  `leetcode 66 56 474`
+    <a href="https://leetcode-cn.com/problems/merge-intervals/">leetcode 56 合并区间</a>
+
+    <a href="https://leetcode-cn.com/problems/ones-and-zeroes/">leetcode 474 一和零</a>
 
 - __12:30__ 旭闻科技 视频面试（修改面试时间至3/5）
 
@@ -92,9 +94,9 @@ def foo():
 
   - <a href="https://meeting.tencent.con/s/9mpm7thtmnkc">面试房间</a>
 
-    `leetcode54`
+    <a href="https://leetcode-cn.com/problems/spiral-matrix">leetcode54 螺旋矩阵</a>
 
-- **16:00 **启明合心 **现场面试**
+- __16:00__ 启明合心 **现场面试**
 
   - <a href="#">海淀区 知春路 量子芯座1607室</a>
 
@@ -113,8 +115,10 @@ def fib(n):
 
   - <a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=54c7cf2be36c4c3d303151d6a6f1a345#/pc">面试房间</a>
 
+    <a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/">leetcode 24 两两交换链表中的节点</a>
+
+    <a href="https://leetcode-cn.com/problems/3sum/">leetcode 15 三数之和</a>
 ```
-leetcode 24 15
 列表和元组的区别是什么?
   元组和列表最大的区别就是，列表中的元素可以进行任意修改，就好比是用铅笔在纸上写的字，写错了还可以擦除重写；而元组中的元素无法修改，除非将元组整体替换掉，就好比是用圆珠笔写的字，写了就擦不掉了，除非换一张纸；可以理解为，tuple 元组是一个只读版本的 list 列表。
 已经有了list类型为什么有tuple类型数据?
@@ -151,7 +155,8 @@ count加1之前，判断是否key是否存在，不存在的话，有两种情�
 
   - <a href="#">北京市 海淀区 知春路68号领航科技大厦4层</a>
 
-```python
+``` python
+# 什么时候会用到装饰器？适用于那些场景？有什么好处？
 # 手写装饰器 面向切片编程 
 import functools
 
@@ -350,8 +355,8 @@ scrapy的工作模式是什么样的？
 
 ⬆图三
 
-```
-手写一个快排算法
+```python
+# 手写一个快排算法
 def quick_sort(arr):
     if arr==[]:
         return[]
@@ -360,10 +365,12 @@ def quick_sort(arr):
         left=quick_sort([l for l in arr[1:]if l<first])
         right=quick_sort([r for r in arr[1:]if r>=first])
         return left+[first]+right 
-手写一个字符串反转
+# 手写一个字符串反转
 a = '123456789'
 b = a[::-1]
 b = ''.join(reversed(a))
+```
+```
 画一个scrapy的架构图
     -图三
 redis的几种数据结构了解吗？
@@ -408,12 +415,17 @@ python2和python3的区别你觉得哪个点你印象比较深？
     -协程就是一种用户态内的上下文切换技术，协程是一种用户态的轻量级线程。
 画一个scrapy的架构图
     -图三
-redis的几种数据结构了解吗？
 git出现冲突pull不下code怎么解决？
 什么是死锁？怎么避免？
     -当线程互相持有对方所需要的资源时，会互相等待对方释放资源，如果线程都不主动释放所占有的资源，将产生死锁。
     -尝试获取锁的时候加一个超时时间，这也就意味着在尝试获取锁的过程中若超过了这个时限该线程则放弃对该锁请求。
     -银行家算法是避免死锁的一种重要方法
+redis的几种数据结构了解吗？
+    -string、set、hash、list
+redis为什么快？除了基于内存操作还有其他原因吗？
+    -IO多路复用
+redis的淘汰机制有了解吗？
+    -每隔一段时间扫描如果设置了TTL到点就删除；或下次访问key时候删掉数据；
 ```
 
 
@@ -444,24 +456,23 @@ def preorder(tree):
 #### 9/24
 
 * **15:00** 小黑盒 电话面试
-  - <a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>
-  - <a href="https://leetcode-cn.com/problems/find-peak-element/">寻找峰值</a>
-```
-二叉树两节点的最大路径长度
-一个数组 里面包含012 要求左边放0右边放1 中间是2 时间复杂度0n；
-手写一个链表的插入删除方法 
-```
+  - <a href="https://leetcode-cn.com/problems/3sum/">leetcode 15 三数之和</a>
+  - <a href="https://leetcode-cn.com/problems/find-peak-element/">leetcode 162 寻找峰值</a>
 
 
 #### 9/26
 
-* **10:30** 滴滴
-  
-
 * **14:00** 知乎 二面
-
+```
+二分查找算法
+两个栈实现一个队列
+```
 
 * **17:00** 小黑盒 二面
+```
+字符串匹配问题（kmp算法）
+一个数组 里面包含012 要求左边放0右边放1 中间是2 时间复杂度0n
+```
 
 -----
 
@@ -654,13 +665,6 @@ ps grep ls ll touch cp cat vim scp top cd rm mkdir mv which su pwd kill zip
 
 **Redis**
 
-默认有16个数据库
-
-常用数据结构 `string` `set` `hset` 虚拟化数据大多都可以存储为`string`
-
-淘汰机制有哪些？
-
-​	每隔一段时间扫描如果设置了TTL到点就删除；或下次访问key时候删掉数据；···
 
 为什么快？除了他是内存型数据库外，还有什么原因？
 
