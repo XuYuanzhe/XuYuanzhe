@@ -26,18 +26,18 @@
 
 ```
 python携程与进程的区别？
-    进程有自己的内存空间，数据栈；协程是一种微线程，自带CPU上下文，若想使用协程则程序中必须有等待，协程执行任务更节省资源。
+    -进程有自己的内存空间，数据栈；协程是一种微线程，自带CPU上下文，若想使用协程则程序中必须有等待，协程执行任务更节省资源。
 cpython的dict底层使用的数据结构？
-    哈希表，key必须是可哈希对象。
+    -哈希表，key必须是可哈希对象。
 cpython的gc有哪几种？
-    引用计数；标记-清除；分代回收
+    -引用计数；标记-清除；分代回收
 OSI网络分层模型？
-    物理层-数据链路层-网络层-传输层-会话层-表示层-应用层
+    -物理层-数据链路层-网络层-传输层-会话层-表示层-应用层
 TCP/UDP的区别？
 列举五种设计模式？
-    单例模式——保证一个类仅有一个实例,并提供一个访问它的全局控制点。比如在加载配置文件时, 可使用该模式。
-    工厂模式——定义一个用以创建对象的接口, 让子类决定实例化哪个类。当遇到需要根据某个前提条件创建不同的类实现时, 会实用工厂模式
-    装饰者模式——动态的给一个类添加额外的指责。
+    -单例模式——保证一个类仅有一个实例,并提供一个访问它的全局控制点。比如在加-载配置文件时, 可使用该模式。
+    -工厂模式——定义一个用以创建对象的接口, 让子类决定实例化哪个类。当遇到需要-根据某个前提条件创建不同的类实现时, 会实用工厂模式
+    -装饰者模式——动态的给一个类添加额外的指责。
 列举redis的五种数据类型，及应用场景，及底层数据结构？
     String可以用来存储字符串、整数、浮点数。
         全局ID：使用int类型的incrby的原子性；
@@ -54,10 +54,10 @@ TCP/UDP的区别？
     Zset
 如何使用redis实现分布式锁？
 redis的内存管理机制与gc？
-    1.被动过期（惰性删除）：key被访问时，如果发现它已经过期就删除。
-    2.主动过期（定期删除）：周期性地从过期字典中选择一部分失效的主键删除。
+    -1.被动过期（惰性删除）：key被访问时，如果发现它已经过期就删除。
+    -2.主动过期（定期删除）：周期性地从过期字典中选择一部分失效的主键删除。
 mongo的ObjectId包含哪些信息？
-    是一个12字节的BSON类型字符串：UNIX时间戳；运行MongoDB的机器；生成此_id的进程；由一个随机数开始的计数器生成的值。
+    -是一个12字节的BSON类型字符串：UNIX时间戳；运行MongoDB的机器；生成此_id的进程；由一个随机数开始的计数器生成的值。
 mongo索引有哪几种类型？
 mongo索引用到什么数据结构？
 mongo分片集群的架构？
@@ -92,7 +92,7 @@ def foo():
 
 - __12:30__ 旭闻科技 **视频面试**
 
-  - <a href="https://meeting.tencent.con/s/9mpm7thtmnkc">面试房间</a>
+  <a href="https://meeting.tencent.con/s/9mpm7thtmnkc">面试房间</a>
 
     <a href="https://leetcode-cn.com/problems/spiral-matrix">leetcode54 螺旋矩阵</a>
 
@@ -113,7 +113,7 @@ def fib(n):
 
 - **19:00** 百度 **视频面试**
 
-  - <a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=54c7cf2be36c4c3d303151d6a6f1a345#/pc">面试房间</a>
+  <a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=54c7cf2be36c4c3d303151d6a6f1a345#/pc">面试房间</a>
 
     <a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/">leetcode 24 两两交换链表中的节点</a>
 
@@ -147,7 +147,7 @@ count加1之前，判断是否key是否存在，不存在的话，有两种情�
 
 - **20:00** 学堂在线 **笔试文件**
 - **20:00** 百度视频 **视频面试**
-  - <a href="https://meeting.tencent.com/s/fEo6TQMpTQYI">面试房间</a>
+  <a href="https://meeting.tencent.com/s/fEo6TQMpTQYI">面试房间</a>
 
 ### 3/12
 
@@ -193,16 +193,16 @@ def test(*args, **kwargs):
 ```
 
 - **15:00** 天眼查 **视频面试**
-
-  - <a href="https://interview.nowcoder.com/interview/19553573/interviewee?code=2bIX4HKc">面试房间</a>
-
-    `寻找第K大`
+  
+  <a href="https://interview.nowcoder.com/interview/19553573/interviewee?code=2bIX4HKc">面试房间</a>
+  
+  <a href="https://leetcode-cn.com/problems/xx4gT2/">剑指 Offer II 076. 数组中的第 k 大的数字</a>
 
 ### 3/16
 
 - **20:00** 百度 **视频面试**
 
-  - <a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=201f6a8f9eed52990f6b46ac3e398180#/pc">面试房间</a>
+  <a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=201f6a8f9eed52990f6b46ac3e398180#/pc">面试房间</a>
 
 ```python
 # 一个自然数可以分解为若干个自然数相乘，对于指定自然数n,请求出每种分解自然数之和最小的一个（不考虑1，若是素数，则是它本身）
@@ -239,7 +239,8 @@ if __name__ == "__main__":
 ### 3/28
 
 * **14:00** 字节跳动 视频面试（取消）
-  * <a href="https://people.toutiaocloud.com/hire/bridge/video/interviewee/893c9fe4-59e2-4592-b32d-1186a550a2f4">面试房间</a>
+  
+  <a href="https://people.toutiaocloud.com/hire/bridge/video/interviewee/893c9fe4-59e2-4592-b32d-1186a550a2f4">面试房间</a>
 
 ### 9/14
 
