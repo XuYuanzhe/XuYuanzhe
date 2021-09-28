@@ -6,10 +6,15 @@
 
 ### 文化 
 
-[印第安文化与Goro's银饰的一些了解](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/%E5%8D%B0%E7%AC%AC%E5%AE%89%E9%93%B6%E9%A5%B0.md)
+[印第安文化与Goro's银饰](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/%E5%8D%B0%E7%AC%AC%E5%AE%89%E9%93%B6%E9%A5%B0.md)
 
 
-### 其他
+### 经济
+
+[三种成本](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/ThreeCosts.md)
+
+
+### 游戏
 
 [赛博朋克2077故事梗概](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/Cyberpunk2077.md)
 
@@ -17,6 +22,6 @@
 
 ### 职场
 
-[内卷 Involution](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/Involution.md)
+[内卷-Involution](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/Involution.md)
 
 [什么时候该离职了](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought/WhenToLeave.md)
