@@ -723,3 +723,7 @@ https://github.com/tuteng/Best-websites-a-programmer-should-visit-zh#%E9%9D%A2%E
 
 Python Interview：
 https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonInterview.md
+
+```diff
+! text is orange
+```
