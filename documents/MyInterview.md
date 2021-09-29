@@ -96,7 +96,7 @@ def foo():
 
     <a href="https://leetcode-cn.com/problems/spiral-matrix">leetcode54 螺旋矩阵</a>
 
-- __16:00__ 启明合心 **现场面试**（**Offer from Hexin**）
+- __16:00__ 启明合心 **现场面试**（<font color=#ff8c00>Offer from Hexin</font>）
 
   地点：<a href="#">海淀区 知春路 量子芯座1607室</a>
 
@@ -227,7 +227,7 @@ if __name__ == "__main__":
 
 ### 3/20 
 
-- **11:00** GamesVessel **现场面试**（**Offer from GamesVessel**）
+- **11:00** GamesVessel **现场面试**（<font color=#ff8c00>Offer from GamesVessel</font>）
   
   地点：<a href="#">海淀区 王庄路 清华同方科技广场D座东楼12层</a>
   
@@ -481,7 +481,7 @@ MySQL写一条select最重要的是什么？
 
 ### 9/26
 
-* **14:00** 知乎 **现场二面**（**Offer from Zhihu**）
+* **14:00** 知乎 **现场二面**（<font color=#ff8c00>Offer from Zhihu</font>）
   
   地点：<a href="#">海淀区学院路甲 5 号 768 创意园 A座15号门1002</a>
 
@@ -715,4 +715,11 @@ python比较慢的话换个语言
 > 刚才您问到的xxx问题我答的(不)好，我想问下您是怎么理解这个地方的。
 > 
 > 您对这个岗位三到五年职业规划的建议是什么呢？
-> 
+
+**其他参考**
+
+面试部分的描述：
+https://github.com/tuteng/Best-websites-a-programmer-should-visit-zh#%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87
+
+Python Interview：
+https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonInterview.md
