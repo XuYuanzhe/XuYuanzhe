@@ -18,7 +18,7 @@
 
 ## 工作及教育经历
 
-* 前任公司&emsp;&emsp;&emsp;&emsp;&emsp;2019.8~至今&emsp;&emsp;&emsp;&emsp;&emsp;事业部-部门名       
+* 前任公司&emsp;&emsp;&emsp;&emsp;&emsp;2021.8~至今&emsp;&emsp;&emsp;&emsp;&emsp;事业部-部门名       
 * 清华大学&emsp;&emsp;&emsp;&emsp;&emsp;2019.9~2021.7&emsp;&emsp;&emsp;&emsp; 软件工程-研究生         
 * 北京大学&emsp;&emsp;&emsp;&emsp;&emsp;2015.9~2019.7&emsp;&emsp;&emsp;&emsp; 软件工程-本科
 
