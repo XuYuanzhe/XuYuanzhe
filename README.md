@@ -1,10 +1,8 @@
-# 2021年计划
+# 2022年计划
 
-- [ ] 拥有20W存款 `15/20 已完成 75%`
+- [ ] 拥有25W存款 `20/25 已完成 80%`
 - [ ] 体重负增长10kg `?/10 已完成 0%`
-- [ ] 公众号拥有400粉丝 `264/400 已完成 66%`
-
---> [Schedule](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/schedule.md)
+- [ ] 公众号拥有500粉丝 `307/500 已完成 61%`
 
 --> [Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
 
