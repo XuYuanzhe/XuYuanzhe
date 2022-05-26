@@ -47,7 +47,7 @@
 
 ## 个人账号 
 * blog 地址
-* github 地址
+* github 地址（https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md）
 
 ## 自我评价 
 * 本人热爱编程，喜欢钻研技术 等等
