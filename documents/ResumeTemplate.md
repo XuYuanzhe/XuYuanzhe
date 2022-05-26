@@ -6,9 +6,9 @@
 
 ## 个人信息 
 
-* 性 别：男&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;  &emsp;&emsp;&emsp;&emsp;&emsp;  &emsp;&emsp;&emsp;&emsp;&emsp; 年 龄：22  
-* 手 机：13014663969&emsp;&emsp;&emsp;&emsp;&emsp; 邮 箱：xushilin@gmail.com    
-* 专 业：软件工程&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 现 居：北京市 西城区
+* 性 别：男&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp; 年 龄：22  
+* 手 机：13014663969&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：xushilin@gmail.com    
+* 专 业：软件工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 现 居：北京市 西城区
 
 ## 求职意向
 
@@ -18,9 +18,9 @@
 
 ## 工作及教育经历
 
-* 前公司&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;2019.8~至今&emsp;&emsp;&emsp;&emsp;&emsp; 事业群名字-部门名字       
-* XXXX大学&emsp;&emsp;&emsp;&emsp;&emsp;2017.9~2019.7&emsp;&emsp;&emsp;&emsp; 计算机科学与技术专业-研究生         
-* XXXX大学&emsp;&emsp;&emsp;&emsp;&emsp;2013.9~2017.7&emsp;&emsp;&emsp;&emsp; 计算机科学与技术专业-本科
+* 前任公司&emsp;&emsp;&emsp;&emsp;&emsp;2019.8~至今&emsp;&emsp;&emsp;&emsp;&emsp;事业部-部门名       
+* 清华大学&emsp;&emsp;&emsp;&emsp;&emsp;2019.9~2021.7&emsp;&emsp;&emsp;&emsp; 软件工程-研究生         
+* 北京大学&emsp;&emsp;&emsp;&emsp;&emsp;2015.9~2019.7&emsp;&emsp;&emsp;&emsp; 软件工程-本科
 
 ## 专业技能
 * 熟练使用 Python，掌握 Go，了解 Java、Python、PHP 等编程语言
