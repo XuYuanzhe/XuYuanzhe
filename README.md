@@ -2,7 +2,7 @@
 
 - [ ] 拥有25W存款 `20/25 已完成 80%`
 - [ ] 体重负增长10kg `?/10 已完成 0%`
-- [ ] 公众号拥有500粉丝 `307/500 已完成 61%`
+- [ ] 公众号拥有500粉丝 `313/500 已完成 62%`
 
 --> [Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
 
