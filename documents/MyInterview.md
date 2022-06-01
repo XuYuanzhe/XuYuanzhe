@@ -110,8 +110,6 @@ def foo():
 
 - **12:30** 旭闻科技
 
-  地点：<a href="https://meeting.tencent.con/s/9mpm7thtmnkc">线上面试房间</a>
-
     <a href="https://leetcode-cn.com/problems/spiral-matrix">leetcode54 螺旋矩阵</a>
 
 - **16:00** 启明合心
@@ -130,8 +128,6 @@ def fib(n):
 ```
 
 - **19:00** 百度
-
-  地点：<a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=54c7cf2be36c4c3d303151d6a6f1a345#/pc">线上面试房间</a>
 
     <a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/">leetcode 24 两两交换链表中的节点</a>
 
@@ -168,8 +164,6 @@ count加1之前，判断是否key是否存在，不存在的话，有两种情�
 - **20:00** 学堂在线
 - **20:00** 百度视频
   
-  地点：<a href="https://meeting.tencent.com/s/fEo6TQMpTQYI">线上面试房间</a>
-
 ### 3/12
 
 - **11:00** Moka
@@ -218,15 +212,11 @@ test()
 
 - **15:00** 天眼查
   
-  地点：<a href="https://interview.nowcoder.com/interview/19553573/interviewee?code=2bIX4HKc">线上面试房间</a>
-  
   <a href="https://leetcode-cn.com/problems/xx4gT2/">剑指 Offer II 076. 数组中的第 k 大的数字</a>
 
 ### 3/16
 
 - **20:00** 百度
-
-  地点：<a href="https://infoflow.baidu.com/voip/api/meeting/middle/index.html?id=201f6a8f9eed52990f6b46ac3e398180#/pc">线上面试房间</a>
 
 ```python
 # 一个自然数可以分解为若干个自然数相乘，对于指定自然数n,请求出每种分解自然数之和最小的一个（不考虑1，若是素数，则是它本身）
@@ -263,8 +253,6 @@ foo(24)
 
 * **14:00** 字节跳动
   
-  地点：<a href="https://people.toutiaocloud.com/hire/bridge/video/interviewee/893c9fe4-59e2-4592-b32d-1186a550a2f4">线上面试房间</a>
-
 ### 6/10
 
 * **14:00** 豆瓣
