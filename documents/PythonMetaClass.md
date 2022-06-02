@@ -1,3 +1,6 @@
+# Python元类
+
+```python
 class MyType(type):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,3 +41,15 @@ f = Foo('Tom')
 print('------分割线------')
 # f 是一个对象由 Foo 创建
 f()
+
+```
+output
+```text
+MyType __new__
+MyType __init__
+Foo __new__
+Foo __init__
+MyType __call__
+------分割线------
+Foo __call__
+```
