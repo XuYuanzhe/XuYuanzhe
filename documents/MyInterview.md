@@ -313,7 +313,7 @@ scrapy的工作模式是什么样的？
 那怎么理解RPC？他是基于什么实现的呢？比如http服务是基于http协议的
     -Remote Procedure Call Protocol（远程过程调用协议）
      本质的区别就是RPC主要是基于TCP/IP协议的
-你这里不可以写shell命令，他是一种应用程序那你说说$1在shell中是什么含义
+你这里不可以写shell命令，他是一种应用程序，那你说说$1在shell中是什么含义
     -第一个传递的参数
 那$0呢
     -Shell本身的文件名
@@ -559,8 +559,8 @@ https://www.zhihu.com/question/21923021
 面试部分的描述：
 https://github.com/tuteng/Best-websites-a-programmer-should-visit-zh#%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87
 
-Python Interview：
-https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonInterview.md
+Python Notes：
+https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonNotes.md
 
 ```diff
 - text in red

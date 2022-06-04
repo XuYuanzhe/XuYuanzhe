@@ -4,6 +4,8 @@ Vim 技巧（ [Vim Command](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/doc
 
 简历模板（ [Resume Template](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/ResumeTemplate.md) ）
 
+python 的笔记（ [Python Notes](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonNotes.md) ）
+
 Python 面经（ [My Interview](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/MyInterview.md) ）
 
 亦凡社区 js 逆向实录（ [JS Reverse](https://www.wolai.com/ezFnCJUwzbt7cTWezodLGp) ）
@@ -25,8 +27,6 @@ RPC 调用和 HTTP 调用的区别（ [HTTP and RPC](https://github.com/XuYuanzh
 写 SQL 需要注意的问题，以及如何提效（ [Turning Database](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/SQL.md) ）
 
 Git 工作流程（ [Git Workflow](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/GitWorkflow.md) ）
-
-一些 python 的面试题（ [Python interview](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonInterview.md) ）
 
 Shoda 搜索引擎（ [Shoda Search](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/ShodaSearch.md) ）
 
