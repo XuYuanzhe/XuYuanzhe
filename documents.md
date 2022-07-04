@@ -1,10 +1,10 @@
+我的笔记（ [JJSang Notes](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/JJSangNotes.md) ）
+
 iTem 技巧（ [iTem Command](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/iTemCommand.md) ）
 
 Vim 技巧（ [Vim Command](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/VimCommand.md) ）
 
 简历模板（ [Resume Template](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/ResumeTemplate.md) ）
-
-python 的笔记（ [Python Notes](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonNotes.md) ）
 
 Python 面经（ [My Interview](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/MyInterview.md) ）
 

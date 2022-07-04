@@ -560,7 +560,7 @@ https://www.zhihu.com/question/21923021
 https://github.com/tuteng/Best-websites-a-programmer-should-visit-zh#%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87
 
 Python Notes：
-https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonNotes.md
+https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/JJSangNotes.md
 
 ```diff
 - text in red
