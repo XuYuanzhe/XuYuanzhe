@@ -9,5 +9,6 @@ class Singleton(object):
     def foo(self):
         pass
 
+
 class MyClass(Singleton):
     a = 1
