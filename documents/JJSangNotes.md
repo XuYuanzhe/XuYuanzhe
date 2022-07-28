@@ -292,9 +292,20 @@ TCP/IP 协议：ISO2110，IEEE802，IEEE802.2
 
 ## 💾 数据库
 
-#### redis 和 memcache 有什么区别？
-> redis 支持的数据结构更丰富。memcache 只支持 key-value 的存储；
-> redis 原生支持集群，memcache 没有原生的集群模式。
+#### redis 和 memcache 有什么区别？使用场景
+1. redis和Memcache都是将数据存放在内存中，都是内存数据库。不过memcache还可以用于缓存其他东西，例如图片，视频等等
+2. Redis不仅仅支持简单的k/v类型的数据，同时还提供list,set,hash等数据结构的存储
+3. 虚拟内存-redis当物流内存用完时，可以将一些很久没用的value交换到磁盘
+4. 过期策略-memcache在set时就指定，例如set key1 0 0 8，即永不过期。Redis可以通过例如expire设定，例如expire name 10
+5. 分布式-设定memcache集群，利用magent做一主多从，redis可以做一主多从。都可以一主一丛
+6. 存储数据安全-memcache挂掉后，数据没了，redis可以定期保存到磁盘(持久化)
+7. 灾难恢复-memcache挂掉后，数据不可恢复，redis数据丢失后可以通过aof恢复
+8. Redis支持数据的备份，即master-slave模式的数据备份
+9. 应用场景不一样，redis除了作为NoSQL数据库使用外，还能用做消息队列，数据堆栈和数据缓存等;Memcache适合于缓存SQL语句，数据集，用户临时性数据，延迟查询数据和session等
+
+使用场景:
+- 如果有持久方面的需求或对数据类型和处理有要求的应该选择redis
+- 如果简单的key/value存储应该选择memcached.
 
 #### redis 和 MySQL 有什么区别？
 > redis 是内存数据库，数据保存在内存中，速度快。  
@@ -340,7 +351,8 @@ TCP/IP 协议：ISO2110，IEEE802，IEEE802.2
 > 哨兵(Sentinel)需要通过不断的测试和观察才能保证高可用  
 
 #### 为什么哨兵至少是 3 个，2 个不可以吗？
-> 满足 majority 才可以允许故障转移执行。2 个哨兵的 majority 是 2，如果 2 个哨兵都运行着就允许执行故障转移。如果 M1 所在的机器宕机了，那么 s1 哨兵也就挂了，只剩 s2 一个，没有 majorityl 来允许执行故障转移，虽然集群还有一台机器 R1，但是故障转移也不会执行。
+> 满足 majority 才可以允许故障转移执行。2 个哨兵的 majority 是 2，如果 2 个哨兵都运行着就允许执行故障转移。如果 M1 所在的机器宕机了，那么 s1 哨兵也就挂了，只剩 s2 一个，  
+> 没有 majorityl 来允许执行故障转移，虽然集群还有一台机器 R1，但是故障转移也不会执行。
 
 #### 用 redis 来实现限制一个api或页面访问的频率，例如单ip或单用户一分钟之内只能访问多少次？
 ```
@@ -504,6 +516,15 @@ InnoDB 是聚集索引，MyISAM 是非聚集索引
 - 你打电话问书店老板有没有《分布式系统》这本书，你如果是阻塞式调用，你会一直把自己“挂起”，直到得到这本书有没有的结果，如果是非阻塞式调用，你不管老板有没有告诉你，你自己先一边去玩了， 当然你也要偶尔过几分钟check一下老板有没有返回结果。  
 在这里阻塞与非阻塞与是否同步异步无关。跟老板通过什么方式回答你结果无关
 
+#### 什么是僵尸进程和孤儿进程？怎么避免僵尸进程？
+- 孤儿进程： 父进程退出，子进程还在运行的这些子进程都是孤儿进程，孤儿进程将被init 进程（进程号为1）所收养，并由init 进程对他们完成状态收集工作。
+- 僵尸进程： 进程使用fork 创建子进程，如果子进程退出，而父进程并没有调用wait 获waitpid 获取子进程的状态信息，那么子进程的进程描述符仍然保存在系统中的这些进程是僵尸进程。  
+
+避免僵尸进程的方法：
+1. fork 两次用孙子进程去完成子进程的任务
+2. 用wait()函数使父进程阻塞
+3. 使用信号量，在signal handler 中调用waitpid,这样父进程不用阻塞
+
 #### 什么是虚拟内存?
 > 虚拟内存则是虚拟出来的、使用磁盘代替内存。memory就是机器的物理内存，读写速度低于cpu一个量级，但是高于磁盘不止一个量级。  
 > 所以，程序和数据如果在内存的话，会有非常快的读写速度。内存的断电丢失数据是一个不能把所有数据和程序都保存在内存中对原因。  
@@ -512,6 +533,10 @@ InnoDB 是聚集索引，MyISAM 是非聚集索引
 
 
 ## 🔱 正则专精
+
+#### search和match的区别？
+- match() 函数只检测字符串开头位置是否匹配，匹配成功才会返回结果，否则返回None；
+- search() 函数会在整个字符串内查找模式匹配,只到找到第一个匹配然后返回一个包含匹配信息的对象,该对象可以通过调用group()方法得到匹配的字符串,如果字符串没有匹配，则返回None。
 
 #### 正则匹配 `<.*>` 和 `<.*?>` 分别对 `<h1>title</h1>` 进行正则匹配输出什么?
 前者匹配`<h1>title</h1>`，后者匹配 `<h1>`
@@ -551,8 +576,9 @@ re.findall(pattern, msg, flags=re.X)
 
 ## 🐍 Python 语言特性
 
-#### 面向对象的特点？
-> 封装、继承和多态
+#### 对面向对象的理解？
+> 面向对象是相当于面向过程而言的，面向过程语言是一种基于功能分析的，以算法为中心的程序设计方法，而面向对象是一种基于结构分析的，以数据为中心的程序设计思想。  
+> 在面向对象语言中有一个很重要的东西，叫做类。面向对象有三大特性：封装、继承、多态。
 
 #### python 一切皆对象怎么理解？
 > type 类实例化了 object ，type 类由继承自 object，这不矛盾。无论是 type，还是 object，它们即是对象，也是类，所以既拥有对象的特性，也拥有类的特性。  
@@ -567,6 +593,9 @@ re.findall(pattern, msg, flags=re.X)
 #### 什么是元类？
 > 实例对象是由类来创建，类是由元类来创建的。python的类都是由 `type` 类继承的，可以想象为元类是一个类的父类。在Django中多用元类创建语法糖。  
 > [Python MetaClass Notes](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/PythonMetaClass.md)
+
+#### 解释以下什么是闭包？
+> 在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包。
 
 #### Python 的装饰器怎么理解？内部实现原理？
 > 装饰器本质上是一个Python函数，是闭包的一种实现, 它的作用是让其他函数在不需要做任何代码变动的前提下增加额外功能。  
@@ -618,6 +647,9 @@ test()
 
 #### @staticmethod & @classmethod 有何区别？
 > Python 有 3 个方法,静态方法,类方法,实例方法
+- 类方法: 是类对象的方法，在定义时需要在上方使用 @classmethod 进行装饰,形参为cls，表示类对象，类对象和实例对象都可调用
+- 类实例方法: 是类实例化对象的方法,只有实例对象可以调用，形参为self,指代对象本身;
+- 静态方法: 是一个任意函数，在其上方使用 @staticmethod 进行装饰，可以用对象直接调用，静态方法实际上跟该类没有太大关系
 ```python
 def foo(x):
     print("executing foo(%s)" % x)
@@ -655,6 +687,25 @@ a = A()
 #### 魔术方法的双下划线意义何在？
 > 只是一种约定,Python 内部的名字,用来区别其他用户自定义的命名,以防冲突
 
+#### hasattr() getattr() setattr() 函数使用详解？
+- hasattr(object,name): 判断一个对象里面是否有 name 属性或者 name 方法，返回bool值，有name属性（方法）返回True，否则返回False。
+- getattr(object, name, [default]): 获取对象object的属性或者方法，如果存在则打印出来，如果不存在，打印默认值，默认值可选。
+- setattr(object, name, values): 给对象的属性赋值，若属性不存在，先创建再赋值
+```python
+class function_demo(object):
+    name = "demo"
+    def run(self):
+        return "hello function"
+functiondemo = function_demo()
+res = hasattr(functiondemo, "addr") # 先判断是否存在
+if res:
+    addr = getattr(functiondemo, "addr")
+    print(addr)
+else:
+    addr = getattr(functiondemo, "addr", setattr(functiondemo, "addr", "北京首都"))
+    print(addr)
+```
+
 #### 将列表生成式中 [] 改成 () 之后数据结构是否改变?
 > 是，从列表变为生成器
 
@@ -690,6 +741,21 @@ class MyClass(Singleton):
 > 不好，将整个JSON文件直接加载到内存中是一种内存浪费。
 > 每个字符串都有固定的开销，如果字符串可以表示为 ASCII，则每个字符只使用一个字节的内存。如果字符串使用更多扩展字符，则每个字符可能使用4个字节
 
+#### 简述read、readline、readlines的区别？
+- read 读取整个文件
+- readline 读取下一行
+- readlines 读取整个文件到一个迭代器以供我们遍历
+
+#### 现在要处理一个大小为 10G 的文件，但是内存只有4G，应该如何实现？需要考虑的问题都有那些？
+```python
+def get_lines():
+    with open('file.txt','rb') as f:
+        for i in f:
+            yield i
+```
+> 要考虑的问题有：内存只有4G无法一次性读入10G文件，需要分批读入分批读入数据要记录每次读入数据的位置。分批每次读取数据的大小，太小会在读取操作花费过多时间。  
+> https://stackoverflow.com/questions/30294146/python-fastest-way-to-process-large-file
+
 #### 如何查看一个对象的内存？ 
 > sys.getsizeof()
 
@@ -706,11 +772,9 @@ class MyClass(Singleton):
 > 不可变对象(int，string，float，tuple)可理解为C中，该参数为值传递  
 > 可变对象(list，dict)可理解为C中，该参数为指针传递
 
-#### python 内置有哪些数值类型？
-- 整型（int）
-- 浮点数（float）
-- 布尔型（bool）
-- 复数（complex）
+#### is和==有什么区别？
+- is：比较的是两个对象的id值是否相等，也就是比较俩对象是否为同一个实例对象。是否指向同一个内存地址
+- == ： 比较的两个对象的内容/值是否相等，默认会调用对象的eq()方法
 
 #### python 内置有哪些数据结构?
 - List 列表：有序、可变、可迭代。
@@ -718,21 +782,56 @@ class MyClass(Singleton):
 - Dict 字典：可变
 - Set 集合
 
+#### 反转字符串 "aStr"
+```python
+print("aStr"[::-1])
+```
+
 #### List 拓展有哪些方法有什么区别？
 - append：在列表末尾添加新元素。
 - insert：在列表的特定位置添加元素。
 - extend：通过添加新列表来扩展列表。
 
+#### 按 test_list 中元素的 age 由大到小排序
+```python
+test_list = [{'name':'a','age':20},{'name':'b','age':30},{'name':'c','age':25}]
+def sort_by_age(l):
+    return sorted(test_list,key=lambda x:x['age'],reverse=True)
+```
+
+#### 下面代码的输出结果将是什么？
+```python
+test_list = ['a','b','c','d','e']
+print(test_list[10:])
+```
+> 代码将输出[],不会产生IndexError错误。尝试获取 list[10] 和之后的成员，会导致IndexError。然而，尝试获取列表的切片，开始的index超过了成员个数不会产生IndexError，而是仅仅返回一个空列表。 
+
+#### 给定两个列表，怎么找出他们相同的元素和不同的元素?
+```python
+list1 = [1,2,3]
+list2 = [3,4,5]
+set1 = set(list1)
+set2 = set(list2)
+print(set1 & set2)
+print(set1 ^ set2)
+```
+
 #### Dict 的底层使用什么实现的，查找的时间复杂度是多少？为什么？
 > dict 的底层是 hashmap 实现的, 查找的时间复杂度为O(1),
+
+#### 现有字典 `d = {'a':24,'g':52,'i':12,'k':33}` 请按value值进行排序?
+```python
+d = {'a':24,'g':52,'i':12,'k':33}
+sorted(d.items(), key=lambda x: x[1])   # x[0]代表用key进行排序；x[1]代表用value进行排序。
+```
 
 #### 双向字典了解嘛，通过 value 找到 key？
 > Bi-Dictionary 库可以做到  
 > https://mp.weixin.qq.com/s/VOcnZnJ2PWO_smxkK3h7rw
 
 #### Python 已经有 list 结构为什么还要有 tuple?
-> 1.更省内存。Tuple 在内存和处理速度上都优于 List
-> 2.可哈希。因此 Tuple 可以内嵌在 Dict 里面
+> 1.更省内存。Tuple 在内存和处理速度上都优于 List  
+> 2.可哈希。因此 Tuple 可以内嵌在 Dict 里面  
 > 3.线程安全。因为 Tuple是只读的, 这就使得它天生能避免读写冲突和写写冲突，在多线程时候可以大胆放心的使用, python底层中也用了很多tuple.
 
 #### python 是如何管理内存的？
@@ -747,6 +846,12 @@ class MyClass(Singleton):
 循环引用导致引用计数不能清零会造成内存泄漏；函数的参数适用了可变变量 `list` `dict`  而默认不是这种可变变量
 - 标记-清除
 
+#### 哪些操作会导致Python内存溢出，怎么处理？
+1. 所用到C语言开发的底层模块中出现了内存泄漏；
+2. 代码中用到了全局的list， dict或者其他容器，不停的往这些容器中插入对象，而忘记了在使用完之后进行删除回收
+3. 代码中存在死循环或循环产生过多重复的对象实体
+3. 代码中有“引用循环”， 并且被引用的对象定义了 `__del__` 方法， 就会发生内存泄漏；
+
 #### 如何避免循环引用?
 > 如果循环引用中，两个对象都定义了 `__del__` 方法，gc模块不会销毁这两个不可达对象，因为gc模块不知道应该先调用哪个对象的 `__del__` 方法    
 > 例如，两个对象a和b，如果先销毁a，则在销毁b时，会调用b的 `__del__` 方法，该方法中很可能使用了a，这时会造成异常，  
@@ -757,13 +862,24 @@ class MyClass(Singleton):
 > 一个核只能在同一时间运行一个线程.对于io密集型任务，python的多线程起到作用，但对于cpu密集型任务，python的多线程几乎占不到任何优势，还有可能因为争夺资源而变慢
 
 #### 什么是io密集型？什么是cpu密集型？
-> 网络请求，读写这种属于前者，数学计算属于后者。
+> IO密集型： 系统运行，大部分的状况是CPU在等 I/O（硬盘/内存）的读/写(网络请求，读写)  
+> CPU密集型： 大部分时间用来做计算，逻辑判断等CPU动作的程序称之CPU密集型(数学计算)
 
 #### 解释一下进程、线程、协程
 - 进程：是CPU对程序的一次执行过程、一次执行任务。各个进程有自己的内存空间、数据栈等。
 - 线程：是进程中执行运算的最小单位，是进程中的一个实体。
 - 协程：比线程更小的执行单元，又称微线程，在单线程上执行多个任务，自带CPU上下文。想要使用协程，那么我们的任务必须有等待。  
 当我们要完成的任务有耗时任务，属于IO密集型任务时，我们使用协程来执行任务会节省很多的资源。
+
+#### 线程是并发还是并行，进程是并发还是并行？
+> 线程是并发，进程是并行;  
+> 进程之间互相独立，是系统分配资源的最小单位，同一个进程中的所有线程共享资源。
+
+#### 如何实现并行(parallel)和并发（concurrency)？
+> 实现并行的库有： multiprocessing    
+> 实现并发的库有: threading  
+> 程序需要执行较多的读写、请求和回复任务的需要大量的IO操作，IO密集型操作使用并发更好。  
+> CPU运算量大的程序，使用并行会更好
 
 #### python 怎么实现多线程？
 > python使用`threading`实现多线程，使用`gevent + asyncio`实现携程。在Python的进程里只有一个GIL。一个线程需要执行任务，必须获取GIL。  
@@ -775,13 +891,14 @@ class MyClass(Singleton):
 > ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20220705103126.png)
 
 #### python 的多线程不是真正的多线程，为什么还要用？
-> 多线程有两个好处：CPU并行，IO并行。  
+> 只是不适合 CPU 密集型但是 IO 密集型使用多线程有两个好处：CPU并行，IO并行。    
 > Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。  
 > 多核多线程比单核多线程更差，原因是单核下的多线程，每次释放GIL，唤醒的那个线程都能获取到GIL锁，所以能够无缝执行，但多核下，CPU0释放GIL后，其他CPU上的线程都会进行竞争，  
 > 但GIL可能会马上又被CPU0拿到，导致其他几个CPU上被唤醒后的线程会醒着等待到切换时间后又进入待调度状态，这样会造成线程颠簸(thrashing)，导致效率更低
 
 #### 如何最大性能执行 python
-> 更推荐多进程而不是多线程
+> 多进程适合在 CPU 密集操作（cpu操作指令比较多，如位多的的浮点运算）。  
+> 多线程适合在 IO 密性型操作（读写数据操作比多的的，比如爬虫）
 
 #### 为什么python代码执行缓慢？
 > ![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20220705141729.png)    
@@ -803,6 +920,15 @@ class MyClass(Singleton):
 
 #### Python 实现定时任务有哪些方案？
 > https://mp.weixin.qq.com/s/R711eavHKBbvPlZXtUZ8Dg
+
+#### 阅读一下代码他们的输出结果是什么?
+```python
+def multi():
+    return [lambda x : i*x for i in range(4)]
+print([m(3) for m in multi()])
+```
+> 正确答案是[9,9,9,9]，而不是[0,3,6,9]产生的原因是Python的闭包的后期绑定导致的，这意味着在闭包中的变量是在内部函数被调用的时候被查找的，因为，最后函数被调用的时候，for循环已经完成, i 的值最后是3,因此每一个返回值的i都是3,所以最后的结果是[9,9,9,9]
+
 
 ## 🛠️ 应用框架
 
@@ -827,8 +953,14 @@ class MyClass(Singleton):
 #### session和cookie的联系与区别；session为什么说是安全的；
 > pass
 
-#### uWSGI和Nginx的作用；
-> pass
+#### 什么是WSGI,uwsgi,uWSGI?
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/20220728151122.png)  
+- WSGI: web服务器网关接口，是一套协议。用于接收用户请求并将请求进行初次封装，然后将请求交给web框架。实现wsgi协议的模块：wsgiref,本质上就是编写一socket服务端，用于接收用户请求（django)
+- uwsgi: 与WSGI一样是一种通信协议，它是uWSGI服务器的独占协议，用于定义传输信息的类型。 
+- uWSGI: 是一个web服务器，实现了WSGI的协议，uWSGI协议，http协议
+
+#### 为什么有了uWSGI为什么还需要nginx?
+> 因为nginx具备优秀的静态内容处理能力，然后将动态内容转发给uWSGI服务器，这样可以达到很好的客户端响应。
 
 #### scrapy 框架工作流程
 
