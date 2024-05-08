@@ -1,12 +1,9 @@
-# 2022年计划
+# Index
 
-- [ ] 拥有25W存款 `21/25 已完成 84%`
-- [ ] 体重负增长10kg `?/10 已完成 0%`
-- [ ] 公众号拥有500粉丝 `313/500 已完成 62%`
 
---> [Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
+[Documents](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents.md)
 
---> [Food for thought](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought.md)
+[Food for thought](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/food_for_thought.md)
 
 # Programming Books
 

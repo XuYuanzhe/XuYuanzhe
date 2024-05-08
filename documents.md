@@ -14,6 +14,8 @@ Python 面经（ [My Interview](https://github.com/XuYuanzhe/XuYuanzhe/blob/main
 
 关于使用 Http/2.0 反爬虫的实验记录（ [Counter Spiders](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/Http2.md) ）
 
+Nginx 配置 HTTPS & wss（ [Nginx SSL](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/HttpsConfig.md) ）
+
 Go 超时控制的 4 种写法（ [Writing Golang Timeout](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/WritingGolangTimeout.md) ）
 
 使 python 程序变慢的坏习惯（ [Fast run Python](https://github.com/XuYuanzhe/XuYuanzhe/blob/main/documents/FastPython.md) ）
