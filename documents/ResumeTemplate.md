@@ -7,8 +7,8 @@
 ## 个人信息 
 
 * 性 别：男&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp; 年 龄：18  
-* 手 机：13014663969&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：xushilin@gmail.com    
-* 专 业：软件工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 现 居：北京市 昌平区
+* 手 机：13014663969&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：XuYusheng@gmail.com    
+* 专 业：软件工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  现 居：北京市 昌平区
 
 ## 求职意向
 
