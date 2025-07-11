@@ -100,6 +100,21 @@ ALIGN 框架
 | 生态开放性 | 封闭式 API 被厂商卡 | 开源协议，社区共建工具库 | 催生 "AI 应用商店" 模式  |
 | 安全可控性 | API 密钥暴露风险   | 数据不离域，权限分级管控 | 满足企业级合规需求        |
 
+# 什么是 MCP Client ？
+
+> 单独一个 MCP Server 的时候没办法直接使用，必须结合 LLM 才能发挥这个 Server 的能力，
+> 所以我们需要一个基于 LLM 的 Client 去承接这个 Server。
+> LLM 的本质就是输入输出。所以，如果我们要自定义一个 MCP Client，那必然也是对话形式
+
+# STDIO vs SSE
+
+**STDIO**
+> STDIO协议一般是客户端把MCP Server也就是这个Python程序下载到本机并且本机运行，AI客户端与MCP Server使用STDIO也就是操作系统的标准输入输出通道进行交互。使用STDIO协议，AI客户端与MCP Server的距离更近一些。
+
+**SSE**
+> SSE协议则是把MCP Server也就是这个Python程序单独部署，AI客户端与MCP Server使用SSE协议进行远程调用。使用SSE协议，AI客户端与MCP Server的距离更远一些。
+
+
 # 什么是思维链 Chain-of-Thought ?
 
 > 思维链是一种引导大模型进行逐步推理的提示工程技术，通过要求模型展示从问题到答案的完整思考过程，来提高复杂问题的解决能力。
