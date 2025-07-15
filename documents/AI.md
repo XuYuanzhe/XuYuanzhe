@@ -1,7 +1,7 @@
 # AI 
 
 
-## 自动化 L1 - L5 怎么划分？  
+## 自动化 L1 - L5 是如何划分？  
 - L1: 辅助自动化，AI 简化流程，提供工具支持。   
 - L2 - L3: 部分自动化，能独立生成内容但需人类设定条件。  
 - L4: 高级自动化，AI 独立创作，有一定创新能力。    
@@ -105,10 +105,88 @@ AIGC，全称为 AI Generated Content，意为“人工智能生成内容”。�
 
 # 什么是智能体 Agent ？
 
-一种具备自主决策能力的 AI 实体。 能够感知环境、规划任务、调用工具（MCP Server & Function Call）完成目标。
+智能体 = 自治实体（感知→决策→执行） + 目标导向 + 环境交互  
+一个能独立完成任务的“AI员工”。 能够感知环境、推理规划任务、调用工具（MCP Server & Function Call）、从过往经历汲取经验并完成目标。
 
 > eg：输入一个“撰写AI趋势报告”的任务后，Agent 像一位熟练的工人，不仅能挑选最合适的工具自动抓取数据、分析内容，还能根据任务需求灵活组和工具完成复杂操作。　
 
+Agent 的技术架构分层：
+```mermaid
+graph TB
+  A[感知层] --> B(环境输入: 文本/传感器/API)
+  B --> C[认知层]
+  C --> D[规划器: 任务分解]
+  C --> E[记忆模块: 向量数据库]
+  C --> F[工具调用: Function/MCP]
+  D & E & F --> G[执行层]
+  G --> H[行动输出: 代码/API调用/自然语言]
+```
+
+
+# 什么是工作流 Workflow？
+
+工作流 = 任务编排引擎 + 状态管理 + 异常处理
+将多个Agent或工具按有向无环图（DAG）连接，形成自动化流水线（节点编排引擎）。能够跨 Agent 传递数据，流程引擎会按预设规则调度而非 LLMs 自主判断。
+
+Workflow 的技术架构分层：
+```mermaid
+graph TD
+  subgraph 用户交互层
+    A[UI/API Gateway] --> B[可视化编排器]
+    B --> C[监控仪表盘]
+  end
+
+  subgraph 核心引擎层
+    D[工作流引擎] --> E[调度器]
+    D --> F[状态管理器]
+    D --> G[容错控制器]
+  end
+
+  subgraph 执行层
+    H[节点执行器] --> I[Agent 调用接口]
+    H --> J[MCP 适配器]
+    H --> K[Function Calling 网关]
+  end
+
+  subgraph 持久层
+    L[元数据存储] --> M[(工作流模板 DB)]
+    N[状态存储] --> O[(Redis/DynamoDB)]
+    P[日志存储] --> Q[(Elasticsearch)]
+  end
+
+  subgraph 扩展层
+    R[策略沙箱] --> S[自动扩缩容]
+    R --> T[动态DAG注入]
+    U[安全审计] --> V[权限控制]
+  end
+
+  A --> D
+  D --> H
+  H --> L & N & P
+  D --> R & U
+```
+
+一个“医疗报告生成”工作流的示例：
+```mermaid
+sequenceDiagram
+  participant User as 医生
+  participant W as Workflow引擎
+  participant A as Agent
+  participant M as MCP Server
+  User ->> W: 触发“生成患者报告”
+  W ->> A: 调用数据采集Agent
+  A ->> M: MCP调用影像库API(patient_id)
+  M -->> A: 返回CT影像数据
+  A ->> W: 提交影像特征
+  W ->> A: 调用诊断Agent
+  A ->> M: MCP调用病理数据库(patient_id)
+  M -->> A: 返回活检结果
+  A ->> W: 生成诊断建议
+  W ->> User: 输出完整报告
+```
+    关键数据流：
+    所有节点状态由 状态管理器 持久化（避免Agent崩溃导致数据丢失）
+    MCP调用自动携带 全局ContextID（关联同一患者的多次请求）
 
 # 什么是函数调用 function calling？
 
@@ -121,6 +199,10 @@ AIGC，全称为 AI Generated Content，意为“人工智能生成内容”。�
 > eg：向 LLM 发送以下提示：“特斯拉当前的股价是多少？”   
 > 得到的答案要么是“幻觉”，要么是“我没有实时数据，无法告诉你”。
 
+FC 的特点：
+- 极快（无网络延迟）
+- 固定模式（输入输出明确）
+- 不依赖记忆（单次调用）
 
 # 什么是模型上下文协议 MCP ？
 
@@ -242,19 +324,82 @@ MCP，全称为 Model Context Protocol，是一个开源的协议标准。
 
 - SSE 协议是「电话热线」把 MCP Server 也就是这个 Python 程序单独部署，AI 客户端与 MCP Server 使用 SSE 协议进行远程调用。AI 客户端与 MCP Server 的距离更远一些。
 
-# Function Calling 和 MCP Server 和 Agent 有什么区别？
+# Function Calling 和 MCP Server 和 Agent 和 Workflow 有什么区别？
 
-| 维度    | Function Calling             | MCP Server             | Agent                    |
-|-------|------------------------------|------------------------|--------------------------|
-| 本质定位  | 模型内置的轻量级工具调用接口（内部触发）         | 标准化的外部工具通信协议层（双向通信）    | 自主决策的任务执行实体（规划+工具调度）     |
-| 协议性质  | 厂商私有（如OpenAI/Anthropic自定义格式） | 开放标准（JSON-RPC 2.0等）    | 无固定协议（可集成FC/MCP/自定义逻辑）   |
-| 架构设计  | 集成于模型内部，直接生成函数调用指令           | 分层架构（客户端-服务端解耦）        | 多模块协同（规划器+工具库+记忆模块）      |
-| 上下文管理 | 需开发者手动维护多轮对话状态               | 原生支持跨轮次参数传递与状态存储       | 主动维护任务链状态（自动记忆/回溯关键信息）   |
-| 安全机制  | 依赖业务层实现权限控制                  | 内置会话加密、权限分级等企业级安全管控    | 沙箱隔离+运行时监控（防越权/死循环）      |
-| 使用场景  | 简单同步任务（天气查询、计算器、知识库问答）       | 复杂异步工作流（跨系统数据聚合、多步骤决策） | 长周期目标导向任务（旅行规划/竞品分析报告生成） |
+| 维度    | Function Calling             | MCP Server             | Agent                  | Workflow                      |
+|-------|------------------------------|------------------------|------------------------|-------------------------------|
+| 本质定位  | 模型内置的轻量级工具调用接口（内部触发）         | 标准化的外部工具通信协议层（双向通信）    | 自主决策的任务执行实体（规划+工具调度）   | 任务编排引擎（多节点调度与状态管理）            |
+| 协议性质  | 厂商私有（如OpenAI/Anthropic自定义格式） | 开放标准（JSON-RPC 2.0等）    | 无固定协议（可集成FC/MCP/自定义逻辑） | 依赖 DSL/YAML （Prefect/Airflow） |
+| 架构设计  | 集成于模型内部，直接生成函数调用指令           | 分层架构（客户端-服务端解耦）        | 多模块协同（规划器+工具库+记忆模块）    | 有向无环图（DAG）驱动节点依赖              |
+| 上下文管理 | 需开发者手动维护多轮对话状态               | 原生支持跨轮次参数传递与状态存储       | 主动维护任务链状态（自动记忆/回溯关键信息） | 全局状态跟踪（节点间数据持久化）              |
+| 安全机制  | 依赖业务层实现权限控制                  | 内置会话加密、权限分级等企业级安全管控    | 沙箱隔离+运行时监控（防越权/死循环）    | 权限分级+审计日志                     |
+| 使用场景  | 简单同步任务（天气查询、计算器、知识库问答）       | 复杂异步工作流（跨系统数据聚合、多步骤决策） | 长周期目标导向任务（旅行规划）        | 流程化作业（订单处理/报告生成）              |
 
-三者关系图解：
-![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/202507141454366.png)
+决策树：
+```mermaid
+graph TD
+    A{任务类型} -->|简单同步| B[Function Calling]
+    A -->|多工具调用| C[MCP Server]
+    A -->|多步骤决策| D[Agent]
+    A -->|流程自动化| E[Workflow]
+    D --> F{需固定流程?}
+    F -->|是| G[Workflow + Agent]
+    F -->|否| H[独立Agent + MCP]
+    C --> I{工具是否异构?}
+    I -->|是| J[MCP + 开放协议]
+    I -->|否| K[FC + 私有协议]
+```
+四者关系本质是：    
+能力（FC）→ 连接（MCP）→ 思考（Agent）→ 行动（Workflow）
+```mermaid
+graph LR
+  A[用户请求] --> B(Workflow引擎)
+  B --> C{任务类型}
+  C -->|简单反射| D[Function Calling]
+  C -->|复杂工具| E[MCP Server]
+  C -->|决策任务| F[Agent]
+  F -->|调用| D & E
+  D --> G[本地函数]
+  E --> H[外部工具]
+  F --> I[记忆库]
+  B --> J[输出结果]
+```
+Function Calling = 神经末梢反射
+  → 特性：快速、无意识、局部的
+  
+MCP Server = 工具握柄
+  → 特性：标准化、安全、可扩展的
+
+Agent = 大脑
+  → 特性：决策、规划、自主的
+
+Workflow = 神经中枢
+  → 特性：编排、状态化、流程驱动的
+
+# 如何实现“对比iPhone 15在京东和天猫的月销量，并分析价格趋势”这一个需求？
+
+技术分工：
+
+| 组件       | 职责                                                                                            |
+|----------|-----------------------------------------------------------------------------------------------|
+| Workflow | 编排流程：竞品抓取 → 数据清洗 → 趋势分析 → 报告生成                                                                |
+| Agent 群  | - 抓取Agent：控制爬虫 <br> - 清洗Agent：过滤无效数据 <br> - 分析Agent：调用统计模型                                    |
+| MCP      | 封装：<br> - 京东数据API → jd.get_product_sales(item_id) <br> - 天猫数据API → tmall.query_sales(item_id) |
+
+执行流程如图：
+
+```mermaid
+sequenceDiagram
+  Workflow->>抓取Agent: 启动京东数据抓取
+  抓取Agent->>MCP: 调用 jd.get_product_sales("iPhone15")
+  MCP-->>抓取Agent: 返回JSON{ sales: 12000, price: 5999 }
+  抓取Agent->>Workflow: 提交数据
+  Workflow->>清洗Agent: 清洗天猫数据
+  清洗Agent->>MCP: 调用 tmall.query_sales("iPhone15")
+  MCP-->>清洗Agent: 返回JSON{ sales: 15000, price: 5899 }
+  清洗Agent->>分析Agent: 传递清洗后数据
+  分析Agent->>Workflow: 生成趋势报告
+```
 
 
 # 什么是思维链 Chain-of-Thought ?
