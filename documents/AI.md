@@ -412,7 +412,7 @@ Workflow = 神经中枢
   → 特性：编排、状态化、流程驱动的
 
 
-# 如何实现“对比iPhone 15在京东和天猫的月销量，并分析价格趋势”这一个需求？
+# 如何实现“对比 iPhone 15 在京东和天猫的月销量，并分析价格趋势”这一个需求？
 
 技术分工：
 
@@ -436,6 +436,22 @@ sequenceDiagram
   清洗Agent->>分析Agent: 传递清洗后数据
   分析Agent->>Workflow: 生成趋势报告
 ```
+
+
+# 什么是 A2A？
+
+A2A（Agent-to-Agent）是指智能体之间的直接交互和协作。它允许不同的智能体在没有人类干预的情况下相互通信、共享信息和执行任务。A2A 的核心在于智能体能够理解彼此的意图和能力，从而实现高效的协同工作。
+
+架构如下：
+![](https://raw.githubusercontent.com/XuYuanzhe/Figurebed/master/img/202507221748121.png)
+- Agent Card（智能体卡片）：相当于每个智能体对外公布的“服务说明书”和“名片”。描述智能体的名称、版本、调用端点、具备的技能、所需的认证方式等 
+- A2A Server：用来将一个Agent通过A2A协议对外开放的Server。接受任务请求并给予响应或通知；相对于MCP Server开放工具，A2A Server则开放出Agent。
+- A2A Client：访问A2A Server的其他Agent。可见Client与Server是相对的，一个客户端Agent同时也可以通过A2A Server开放给其他应用。
+---
+- 任务模型：服务端 Agent 实现标准的任务接口，负责接收并处理任务请求，管理任务状态并推送结果；客户端 Agent 则通过HTTP调用服务端 Agent的这些接口
+- 任务流程：任务通常按以下状态流转：已提交 (submitted) → 处理中 (working) → （可能需要额外输入 input-required）→ 完成 (completed) 或失败 (failed) 。A2A支持异步任务协作：有完善的通知和回调机制
+- 交换内容：交互过程中双方可以交换消息和工件两类内容：消息可以包含文本、文件、结构化数据等多种形式内容；而工件则代表任务产出的最终结构化结果
+
 
 
 # 什么是思维链 Chain-of-Thought ?
