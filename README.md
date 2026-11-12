@@ -1,12 +1,12 @@
 # Index
 
-[AI Learning](https://github.com/XuYuanzhe/XuYuanzhe/blob/master/documents/AI.md)
+[AI Learning](https://xuyuanzhe.github.io/blog/2026/ai-interview/)
 
-[MY notes](https://github.com/XuYuanzhe/XuYuanzhe/blob/master/documents/JJSangNotes.md)
+[MY notes](https://xuyuanzhe.github.io/blog/2023/my-notes/)
 
-[Resume Template](https://github.com/XuYuanzhe/XuYuanzhe/blob/master/documents/ResumeTemplate.md)
+[Resume Template](https://xuyuanzhe.github.io/blog/2026/resume-template/)
 
-[Cyberpunk 2077](https://github.com/XuYuanzhe/XuYuanzhe/blob/master/food_for_thought/Cyberpunk2077.md)
+[Cyberpunk 2077](https://xuyuanzhe.github.io/blog/2021/cyberpunk2077/)
 
 ---
 
