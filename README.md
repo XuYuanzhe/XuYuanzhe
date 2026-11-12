@@ -1,6 +1,6 @@
 # Hi there 👋
 
-AI-Native Full-Stack Developer
+💻 AI-Native Full-Stack Developer
 
 
 # Resume
