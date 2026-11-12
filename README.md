@@ -16,4 +16,4 @@
 
 ---
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=XuYuanzhe&theme=radical)
+![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=XuYuanzhe&theme=radical)
