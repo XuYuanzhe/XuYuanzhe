@@ -1,12 +1,6 @@
 # Hi there 👋
 
-[AI Learning](https://xuyuanzhe.github.io/blog/2026/ai-interview/)
-
-[MY notes](https://xuyuanzhe.github.io/blog/2023/my-notes/)
-
-[Resume Template](https://xuyuanzhe.github.io/blog/2026/resume-template/)
-
-[Cyberpunk 2077](https://xuyuanzhe.github.io/blog/2021/cyberpunk2077/)
+AI-Native Full-Stack Developer
 
 
 # Resume
@@ -27,4 +21,4 @@ Click [HERE](https://github.com/XuYuanzhe/XuYuanzhe/blob/master/documents/resume
 </picture>
 
 
-![Anurag's GitHub stats](https://github-stats-extended.vercel.app/api?username=XuYuanzhe&theme=radical)
+[//]: # (![Anurag's GitHub stats]&#40;https://github-stats-extended.vercel.app/api?username=XuYuanzhe&theme=radical&#41;)
